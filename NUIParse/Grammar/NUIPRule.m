@@ -114,7 +114,7 @@
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
     [aCoder encodeInteger:[self tag] forKey:NUIPRuleTagKey];
-    [aCoder encodeObject:[self name] forKey:NUIPRuleNameKey];
+    [aCoder encodeObject:[self ruleName] forKey:NUIPRuleNameKey];
     [aCoder encodeObject:[self rightHandSideElements] forKey:NUIPRuleRHSElementsKey];
     [aCoder encodeObject:NSStringFromClass([self representitiveClass]) forKey:NUIPRuleRepresentitiveClassKey];
 }
@@ -129,7 +129,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%@ ::= %@", [self name], [[rightHandSide valueForKey:@"description"] componentsJoinedByString:@" "]];
+    return [NSString stringWithFormat:@"%@ ::= %@", [self ruleName], [[rightHandSide valueForKey:@"description"] componentsJoinedByString:@" "]];
 }
 
 - (NSUInteger)hash

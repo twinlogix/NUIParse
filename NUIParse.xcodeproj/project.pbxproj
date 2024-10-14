@@ -813,6 +813,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 1F0E88EA130462F300537D04;
@@ -1182,6 +1183,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "NUIParse/NUIParse-Info.plist";
 				INSTALL_PATH = "@rpath";
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_AFTER_BUILD = YES;
@@ -1219,6 +1221,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = "NUIParse/NUIParse-Info.plist";
 				INSTALL_PATH = "@rpath";
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_AFTER_BUILD = YES;
@@ -1238,6 +1241,7 @@
 				GCC_PREFIX_HEADER = "NUIParseTests/NUIParseTests-Prefix.pch";
 				INFOPLIST_FILE = "NUIParseTests/NUIParseTests-Info.plist";
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SenTestingKit,
@@ -1259,6 +1263,7 @@
 				GCC_PREFIX_HEADER = "NUIParseTests/NUIParseTests-Prefix.pch";
 				INFOPLIST_FILE = "NUIParseTests/NUIParseTests-Info.plist";
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				OTHER_LDFLAGS = (
 					"-framework",
 					SenTestingKit,
