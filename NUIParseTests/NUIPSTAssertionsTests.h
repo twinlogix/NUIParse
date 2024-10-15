@@ -6,8 +6,9 @@
 //  Copyright (c) 2012 In The Beginning... All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+//#import <SenTestingKit/SenTestingKit.h>
 
-@interface NUIPSTAssertionsTests : SenTestCase
+/*@interface NUIPSTAssertionsTests : SenTestCase
 
 @end
+*/

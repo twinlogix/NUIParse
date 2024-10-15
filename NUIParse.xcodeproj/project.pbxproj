@@ -325,6 +325,7 @@
 		54197207188F7D49004240B4 /* NUIPRegexpRecogniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NUIPRegexpRecogniser.h; sourceTree = "<group>"; };
 		54197208188F7D49004240B4 /* NUIPRegexpRecogniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NUIPRegexpRecogniser.m; sourceTree = "<group>"; };
 		5419721C188F9A54004240B4 /* NUIPRegexpRecogniserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NUIPRegexpRecogniserTest.m; sourceTree = "<group>"; };
+		B3D88F3D2CBEAE1400EE6CDF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		DA2B1DF61566B704002FDBD7 /* NUIPSTAssertionsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NUIPSTAssertionsTests.h; sourceTree = "<group>"; };
 		DA2B1DF71566B704002FDBD7 /* NUIPSTAssertionsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NUIPSTAssertionsTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -395,6 +396,7 @@
 		1F0E88F8130462F300537D04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3D88F3D2CBEAE1400EE6CDF /* UIKit.framework */,
 				1F0E88F9130462F300537D04 /* Cocoa.framework */,
 				1FE77D551375AE6F00879A41 /* Foundation.framework */,
 				1F92818D145C11050033BC34 /* SenTestingKit.framework */,
@@ -1186,6 +1188,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1224,6 +1228,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
 				TEST_AFTER_BUILD = YES;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1277,7 +1283,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/iOSNUIParse.dst;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1288,14 +1294,15 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = NUIParse;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "";
 			};
 			name = Debug;
 		};
@@ -1303,12 +1310,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/iOSNUIParse.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NUIParse/NUIParse-Prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MACOSX_DEPLOYMENT_TARGET = 11.5;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = NUIParse;
@@ -1316,7 +1324,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv7 armv7s";
+				VALID_ARCHS = "";
 			};
 			name = Release;
 		};
