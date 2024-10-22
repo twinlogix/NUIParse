@@ -59,7 +59,7 @@
         NUIPGrammarSymbol *nextSymbol = [item nextSymbol];
         if (![nextSymbol isTerminal])
         {
-            [[self rulesForNonTerminalWithName:[nextSymbol name]] enumerateObjectsUsingBlock:^(NUIPRule *rule, NSUInteger ix, BOOL *s)
+            [[self rulesForNonTerminalWithName:[nextSymbol ruleName]] enumerateObjectsUsingBlock:^(NUIPRule *rule, NSUInteger ix, BOOL *s)
              {
                  NUIPItem *newItem = [NUIPItem itemWithRule:rule position:0];
                  if (![j containsObject:newItem])
@@ -182,7 +182,7 @@
             NSUInteger numElements = [rightHandSide count];
             [rightHandSide enumerateObjectsUsingBlock:^(NUIPGrammarSymbol *rhsE, NSUInteger idx, BOOL *s)
              {
-                 if (![rhsE isTerminal] && [[rhsE name] isEqualToString:name])
+                 if (![rhsE isTerminal] && [[rhsE ruleName] isEqualToString:name])
                  {
                      if (idx + 1 < numElements)
                      {

@@ -392,7 +392,7 @@
     {
         for (id item in [rule rightHandSideElements])
         {
-            if ([item isGrammarSymbol] && ![(NUIPGrammarSymbol *)item isTerminal] && ![definedNonTerminals containsObject:[(NUIPGrammarSymbol *)item name]])
+            if ([item isGrammarSymbol] && ![(NUIPGrammarSymbol *)item isTerminal] && ![definedNonTerminals containsObject:[(NUIPGrammarSymbol *)item ruleName]])
             {
                 return [NSError errorWithDomain:NUIPEBNFParserErrorDomain
                                            code:NUIPErrorCodeUndefinedNonTerminal

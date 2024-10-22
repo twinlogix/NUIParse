@@ -62,10 +62,10 @@
                         }
                         else
                         {
-                            BOOL success = [[self actionTable] setAction:[NUIPShiftReduceAction reduceAction:[item rule]] forState:idx name:[[item terminal] name]];
+                            BOOL success = [[self actionTable] setAction:[NUIPShiftReduceAction reduceAction:[item rule]] forState:idx name:[[item terminal] ruleName]];
                             if (!success)
                             {
-                                NSLog(@"Could not insert reduce in action table for state %lu, token %@", (unsigned long)idx, [[item terminal] name]);
+                                NSLog(@"Could not insert reduce in action table for state %lu, token %@", (unsigned long)idx, [[item terminal] ruleName]);
                                 return NO;
                             }
                         }
@@ -85,10 +85,10 @@
                             }
                             indx++;
                         }
-                        BOOL success = [[self actionTable] setAction:[NUIPShiftReduceAction shiftAction:ix] forState:idx name:[next name]];
+                        BOOL success = [[self actionTable] setAction:[NUIPShiftReduceAction shiftAction:ix] forState:idx name:[next ruleName]];
                         if (!success)
                         {
-                            NSLog(@"Could not insert shift in action table for state %lu, token %@", (unsigned long)idx, [next name]);
+                            NSLog(@"Could not insert shift in action table for state %lu, token %@", (unsigned long)idx, [next ruleName]);
                             return NO;
                         }
                     }
@@ -159,7 +159,7 @@
             NSSet *j = [aug lr1Closure:[NSSet setWithObject:[NUIPLR1Item lr1ItemWithRule:[item rule] position:[item position] terminal:[NUIPGrammarSymbol terminalWithName:uniqueName]]]];
             for (NUIPLR1Item *lr1Item in j)
             {
-                NSString *name = [[lr1Item terminal] name];
+                NSString *name = [[lr1Item terminal] ruleName];
                 NUIPGrammarSymbol *nextSymbol = [lr1Item nextSymbol];
                 if (nil != nextSymbol)
                 {
@@ -255,7 +255,7 @@
             NSSet *symbols = [kernelSymbols objectForKey:item];
             for (NUIPGrammarSymbol *symbol in symbols)
             {
-                if (nil != [symbol name])
+                if (nil != [symbol ruleName])
                 {
                     [lr1Kernel addObject:[NUIPLR1Item lr1ItemWithRule:[item rule] position:[item position] terminal:symbol]];
                 }

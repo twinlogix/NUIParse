@@ -72,12 +72,12 @@
 {
     return ([object isGrammarSymbol] &&
             ((NUIPGrammarSymbol *)object)->terminal == terminal &&
-            [((NUIPGrammarSymbol *)object)->ruleName isEqualToString:name]);
+            [((NUIPGrammarSymbol *)object)->ruleName isEqualToString:ruleName]);
 }
 
 - (BOOL)isEqualToGrammarSymbol:(NUIPGrammarSymbol *)object
 {
-    return (object != nil && object->terminal == terminal && [object->ruleName isEqualToString:name]);
+    return (object != nil && object->terminal == terminal && [object->ruleName isEqualToString:ruleName]);
 }
 
 - (NSUInteger)hash

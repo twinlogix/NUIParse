@@ -73,7 +73,7 @@ static char followCacheKey;
 
 - (NSSet *)firstSymbol:(NUIPGrammarSymbol *)sym
 {
-    NSString *name = [sym name];
+    NSString *name = [sym ruleName];
     if ([sym isTerminal] && nil != name)
     {
         return [NSSet setWithObject:name];

@@ -122,7 +122,7 @@
         {
             if ([item isGrammarSymbol] && ![(NUIPGrammarSymbol *)item isTerminal])
             {
-                [nonTerminals addObject:[(NUIPGrammarSymbol *)item name]];
+                [nonTerminals addObject:[(NUIPGrammarSymbol *)item ruleName]];
             }
             else if ([item isRHSItem])
             {

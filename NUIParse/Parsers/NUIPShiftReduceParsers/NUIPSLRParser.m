@@ -70,7 +70,7 @@
             {
                 NSSet *g = [aug lr0GotoKernelWithItems:itemSet symbol:next];
                 NSUInteger ix = [kernels indexOfObject:g];
-                BOOL success = [[self actionTable] setAction:[NUIPShiftReduceAction shiftAction:ix] forState:idx name:[next name]];
+                BOOL success = [[self actionTable] setAction:[NUIPShiftReduceAction shiftAction:ix] forState:idx name:[next ruleName]];
                 if (!success)
                 {
                     return NO;

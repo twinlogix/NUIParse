@@ -57,7 +57,7 @@
                 }
                 else
                 {
-                    BOOL success = [[self actionTable] setAction:[NUIPShiftReduceAction reduceAction:[item rule]] forState:idx name:[[item terminal] name]];
+                    BOOL success = [[self actionTable] setAction:[NUIPShiftReduceAction reduceAction:[item rule]] forState:idx name:[[item terminal] ruleName]];
                     if (!success)
                     {
                         return NO;
@@ -68,7 +68,7 @@
             {
                 NSSet *g = [aug lr1GotoKernelWithItems:itemsSet symbol:next];
                 NSUInteger ix = [kernels indexOfObject:g];
-                BOOL success = [[self actionTable] setAction:[NUIPShiftReduceAction shiftAction:ix] forState:idx name:[next name]];
+                BOOL success = [[self actionTable] setAction:[NUIPShiftReduceAction shiftAction:ix] forState:idx name:[next ruleName]];
                 if (!success)
                 {
                     return NO;
