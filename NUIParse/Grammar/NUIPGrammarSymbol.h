@@ -60,7 +60,7 @@
 /**
  * The grammar symbol's name.
  */
-@property (readwrite, copy  ) NSString *name;
+@property (readwrite, copy  ) NSString *ruleName;
 
 /**
  * Whether the grammar symbol is a terminal or non-terminal.

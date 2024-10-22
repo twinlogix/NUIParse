@@ -17,7 +17,7 @@
 @synthesize escapeSequence;
 @synthesize escapeReplacer;
 @synthesize maximumLength;
-@synthesize name;
+@synthesize PTName;
 
 + (id)quotedRecogniserWithStartQuote:(NSString *)startQuote endQuote:(NSString *)endQuote name:(NSString *)name
 {
@@ -44,7 +44,7 @@
         [self setEndQuote:initEndQuote];
         [self setEscapeSequence:initEscapeSequence];
         [self setMaximumLength:initMaximumLength];
-        [self setName:initName];
+        [self setPTName:initName];
     }
     
     return self;
@@ -74,7 +74,7 @@
             NSLog(@"Warning, value for maximum length too long for this platform, allowing infinite lengths");
             [self setMaximumLength:NSNotFound];
         }
-        [self setName:[aDecoder decodeObjectForKey:NUIPQuotedRecogniserNameKey]];
+        [self setPTName:[aDecoder decodeObjectForKey:NUIPQuotedRecogniserNameKey]];
     }
     
     return self;
@@ -90,7 +90,7 @@
     [aCoder encodeObject:[self endQuote]       forKey:NUIPQuotedRecogniserEndQuoteKey];
     [aCoder encodeObject:[self escapeSequence] forKey:NUIPQuotedRecogniserEscapeSequenceKey];
     [aCoder encodeInteger:[self maximumLength] forKey:NUIPQuotedRecogniserMaximumLengthKey];
-    [aCoder encodeObject:[self name]           forKey:NUIPQuotedRecogniserNameKey];
+    [aCoder encodeObject:[self PTName]           forKey:NUIPQuotedRecogniserNameKey];
 }
 
 - (void)dealloc
@@ -99,7 +99,7 @@
     [endQuote release];
     [escapeSequence release];
     [escapeReplacer release];
-    [name release];
+    [PTName release];
     
     [super dealloc];
 }
@@ -135,7 +135,7 @@
                 CFStringRef substr = CFStringCreateWithSubstring(kCFAllocatorDefault, (CFStringRef)tokenString, CFRangeMake(searchRange.location, endRange.location - searchRange.location));
                 CFStringAppend(outputString, substr);
                 CFRelease(substr);
-                NUIPQuotedToken *t = [NUIPQuotedToken content:(NSString *)outputString quotedWith:startQuote name:[self name]];
+                NUIPQuotedToken *t = [NUIPQuotedToken content:(NSString *)outputString quotedWith:startQuote name:[self PTName]];
                 CFRelease(outputString);
                 return t;
             }

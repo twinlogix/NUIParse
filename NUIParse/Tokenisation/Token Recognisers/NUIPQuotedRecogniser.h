@@ -120,6 +120,6 @@
 /**
  * Determines the name of the NUIPToken produced.
  */
-@property (readwrite,copy) NSString *name;
+@property (readwrite,copy) NSString *PTName;
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation NUIPGrammarSymbol
 
-@synthesize name;
+@synthesize ruleName;
 @synthesize terminal;
 
 + (id)nonTerminalWithName:(NSString *)name
@@ -29,7 +29,7 @@
     
     if (nil != self)
     {
-        [self setName:initName];
+        [self setRuleName:initName];
         [self setTerminal:isTerminal];
     }
     
@@ -50,7 +50,7 @@
     
     if (nil != self)
     {
-        [self setName:[aDecoder decodeObjectForKey:NUIPGrammarSymbolNameKey]];
+        [self setRuleName:[aDecoder decodeObjectForKey:NUIPGrammarSymbolNameKey]];
         [self setTerminal:[aDecoder decodeBoolForKey:NUIPGrammarSymbolTerminalKey]];
     }
     
@@ -59,7 +59,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeObject:[self name] forKey:NUIPGrammarSymbolNameKey];
+    [aCoder encodeObject:[self ruleName] forKey:NUIPGrammarSymbolNameKey];
     [aCoder encodeBool:[self isTerminal] forKey:NUIPGrammarSymbolTerminalKey];
 }
 
@@ -72,34 +72,34 @@
 {
     return ([object isGrammarSymbol] &&
             ((NUIPGrammarSymbol *)object)->terminal == terminal &&
-            [((NUIPGrammarSymbol *)object)->name isEqualToString:name]);
+            [((NUIPGrammarSymbol *)object)->ruleName isEqualToString:name]);
 }
 
 - (BOOL)isEqualToGrammarSymbol:(NUIPGrammarSymbol *)object
 {
-    return (object != nil && object->terminal == terminal && [object->name isEqualToString:name]);
+    return (object != nil && object->terminal == terminal && [object->ruleName isEqualToString:name]);
 }
 
 - (NSUInteger)hash
 {
-    return [[self name] hash];
+    return [[self ruleName] hash];
 }
 
 - (NSString *)description
 {
     if ([self isTerminal])
     {
-        return [NSString stringWithFormat:@"\"%@\"", [self name]];
+        return [NSString stringWithFormat:@"\"%@\"", [self ruleName]];
     }
     else
     {
-        return [NSString stringWithFormat:@"<%@>", [self name]];
+        return [NSString stringWithFormat:@"<%@>", [self ruleName]];
     }
 }
 
 - (void)dealloc
 {
-    [name release];
+    [ruleName release];
     
     [super dealloc];
 }
