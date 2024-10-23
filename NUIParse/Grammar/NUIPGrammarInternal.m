@@ -131,7 +131,7 @@
         NUIPGrammarSymbol *nextSymbol = [followingSymbols count] > 0 ? [followingSymbols objectAtIndex:0] : nil;
         if (![nextSymbol isTerminal])
         {
-            NSArray *rs = [self rulesForNonTerminalWithName:[(NUIPGrammarSymbol *)nextSymbol name]];
+            NSArray *rs = [self rulesForNonTerminalWithName:[(NUIPGrammarSymbol *)nextSymbol ruleName]];
             for (NUIPRule *r in rs)
             {
                 NSArray *afterNext = [followingSymbols subarrayWithRange:NSMakeRange(1, [followingSymbols count] - 1)];

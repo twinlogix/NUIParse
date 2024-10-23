@@ -131,7 +131,7 @@ static char followCacheKey;
         {
             if ([sym isGrammarSymbol])
             {
-                [symbols addObject:[sym name]];
+                [symbols addObject:[sym ruleName]];
             }
         }
     }
